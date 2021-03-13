@@ -1,13 +1,27 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Colors from '../constants/Colors';
+import SplashScreen from '../screens/SplashScreen';
 import UserDetails from '../screens/UserDetails';
 import UserOverview from '../screens/UserOverview';
 
 const NavigationContainer = createStackNavigator(
   {
-    UserOverview: UserOverview,
-    UserDetails: UserDetails,
+    Splash: {
+      screen: SplashScreen,
+      navigationOptions: {
+        headerShown: false,
+      },
+    },
+    UserOverview: {
+      screen: UserOverview,
+    },
+    UserDetails: {
+      screen: UserDetails,
+    },
+  },
+  {
+    initialRouteName: 'Splash',
   },
   {
     defaultNavigationOptions: {
